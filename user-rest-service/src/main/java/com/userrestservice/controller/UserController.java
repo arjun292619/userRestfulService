@@ -36,4 +36,12 @@ public class UserController {
     public ResponseEntity<List<User>> getAllUsers() {
         return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
     }
+
+    //update user
+    //http://localhost:8080/api/users/1
+    @PutMapping("{id}")
+    public ResponseEntity<User> updateUser(@PathVariable(name = "id") Long userId, @RequestBody User user) {
+        User updatedUser = userService.updateUser(userId, user);
+        return new ResponseEntity<>(updatedUser, HttpStatus.OK);
+    }
 }
