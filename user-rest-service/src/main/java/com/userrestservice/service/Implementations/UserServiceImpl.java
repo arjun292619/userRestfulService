@@ -47,4 +47,9 @@ public class UserServiceImpl implements UserService {
         matchedUser.setPhone(user.getPhone());
         return userRepository.save(matchedUser);
     }
+
+    @Override
+    public void deleteUser(Long userId) {
+        userRepository.deleteById(userId);
+    }
 }
